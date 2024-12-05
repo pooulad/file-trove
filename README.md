@@ -27,27 +27,62 @@ This section provides examples of how to use the File Trove CLI tool with differ
 
 ---
 
+## Build the CLI Tool
+Compile the tool to generate the executable:
+
+```bash
+git clone https://github.com/pooulad/file-trove.git
+
+cd file-trove
+```
+
+```bash
+go build -o file-trove.exe . // in windows os
+```
+or
+```bash
+go build -o file-trove . 
+```
+
 ## Basic Backup
 Perform a simple backup from the source directory to the destination directory:
 
+Windows example:
 ```bash
-file-trove --operation backup --src "C:\Users\YourName\Documents" --dest "D:\Backups"
+.\file-trove --operation backup --src "C:\Users\YourName\Documents" --dest "D:\Backups"
+```
+
+Linux example:
+```bash
+./file-trove --operation backup --src "src/folder" --dest "dest/folder"
 ```
 
 ## Periodic Backup
 
 Perform a backup every 10 minutes:
 
+Windows example:
 ```bash
-file-trove --operation backup --src "C:\Projects" --dest "E:\ProjectBackups" --period 10
+.\file-trove --operation backup --src "C:\Projects" --dest "E:\ProjectBackups" --period 10
+```
+
+Linux example:
+```bash
+./file-trove --operation backup --src "src/folder" --dest "dest/folder" --period 10
 ```
 
 ## Full Configuration Example
 
 Perform a periodic backup every 15 minutes, compress the result, exclude unnecessary files, and log to a file:
 
+Windows example:
 ```bash
-file-trove --operation backup --src "C:\Source" --dest "D:\Destination" --period 15 --compress --log "backup.log" --exclude "temp,cache"
+.\file-trove --operation backup --src "C:\Source" --dest "D:\Destination" --period 15 --compress --log "backup.log" --exclude "temp,cache"
+```
+
+Linux example:
+```bash
+./file-trove --operation backup --src "src/folder" --dest "dest/folder" --period 15 --compress --log "backup.log" --exclude "temp,cache"
 ```
 Checkout `example` directory for see result of tool.
 
